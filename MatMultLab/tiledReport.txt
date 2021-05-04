@@ -1,0 +1,176 @@
+Tiled runs with tiles sizes between 1 and 25
+tilesize = 1
+
+8195.536449
+
+real	1m3.179s
+user	1m2.975s
+sys	0m0.130s
+tilesize = 2
+
+8195.536449
+
+real	0m26.152s
+user	0m26.042s
+sys	0m0.070s
+tilesize = 3
+
+8195.536449
+
+real	0m18.975s
+user	0m18.770s
+sys	0m0.180s
+tilesize = 4
+
+8195.536449
+
+real	0m16.205s
+user	0m16.145s
+sys	0m0.040s
+tilesize = 5
+
+8195.536449
+
+real	0m14.353s
+user	0m14.256s
+sys	0m0.080s
+tilesize = 6
+
+8195.536449
+
+real	0m13.173s
+user	0m13.107s
+sys	0m0.050s
+tilesize = 7
+
+8195.536449
+
+real	0m12.545s
+user	0m12.469s
+sys	0m0.060s
+tilesize = 8
+
+8195.536449
+
+real	0m12.049s
+user	0m11.985s
+sys	0m0.050s
+tilesize = 9
+
+8195.536449
+
+real	0m13.048s
+user	0m12.891s
+sys	0m0.140s
+tilesize = 10
+
+8195.536449
+
+real	0m12.546s
+user	0m12.481s
+sys	0m0.051s
+tilesize = 11
+
+8195.536449
+
+real	0m12.603s
+user	0m12.504s
+sys	0m0.081s
+tilesize = 12
+
+8195.536449
+
+real	0m12.055s
+user	0m12.019s
+sys	0m0.020s
+tilesize = 13
+
+8195.536449
+
+real	0m11.945s
+user	0m11.882s
+sys	0m0.050s
+tilesize = 14
+
+8195.536449
+
+real	0m11.808s
+user	0m11.777s
+sys	0m0.020s
+tilesize = 15
+
+8195.536449
+
+real	0m11.717s
+user	0m11.659s
+sys	0m0.040s
+tilesize = 16
+
+8195.536449
+
+real	0m11.519s
+user	0m11.476s
+sys	0m0.030s
+tilesize = 17
+
+8195.536449
+
+real	0m11.649s
+user	0m11.545s
+sys	0m0.090s
+tilesize = 18
+
+8195.536449
+
+real	0m11.433s
+user	0m11.355s
+sys	0m0.060s
+tilesize = 19
+
+8195.536449
+
+real	0m11.474s
+user	0m11.421s
+sys	0m0.040s
+tilesize = 20
+
+8195.536449
+
+real	0m11.401s
+user	0m11.248s
+sys	0m0.140s
+tilesize = 21
+
+8195.536449
+
+real	0m11.228s
+user	0m11.174s
+sys	0m0.040s
+tilesize = 22
+
+8195.536449
+
+real	0m11.295s
+user	0m11.171s
+sys	0m0.110s
+tilesize = 23
+
+8195.536449
+
+real	0m11.031s
+user	0m10.977s
+sys	0m0.040s
+tilesize = 24
+
+8195.536449
+
+real	0m11.005s
+user	0m10.930s
+sys	0m0.060s
+tilesize = 25
+
+8195.536449
+
+real	0m11.023s
+user	0m10.948s
+sys	0m0.060s

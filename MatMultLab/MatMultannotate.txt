@@ -1,0 +1,106 @@
+--------------------------------------------------------------------------------
+I1 cache:         16384 B, 64 B, 4-way associative
+D1 cache:         16384 B, 64 B, 4-way associative
+LL cache:         262144 B, 64 B, 8-way associative
+Command:          ./MatMult2kX
+Data file:        cachegrind.out.1499
+Events recorded:  Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Events shown:     Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Event sort order: Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Thresholds:       0.1 100 100 100 100 100 100 100 100
+Include dirs:     
+User annotated:   ./MatMult2kX
+Auto-annotation:  on
+
+--------------------------------------------------------------------------------
+           Ir  I1mr  ILmr            Dr        D1mr       DLmr        Dw    D1mw    DLmw 
+--------------------------------------------------------------------------------
+3,089,724,403 1,508 1,186 1,025,273,031 530,183,174 64,153,075 2,150,954 800,624 240,570  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+           Ir I1mr ILmr            Dr        D1mr       DLmr        Dw    D1mw    DLmw  file:function
+--------------------------------------------------------------------------------
+3,077,125,607    2    1 1,024,640,005 530,166,752 64,146,293   640,004 640,001  80,253  /home/pi/csci263/MatMultLab/MatMult2k.c:multMat(double (*) [800], double (*) [800], double (*) [800])
+   10,246,420    3    2            10           5          5 1,280,002 160,000 160,000  /home/pi/csci263/MatMultLab/MatMult2k.c:main
+
+--------------------------------------------------------------------------------
+-- User-annotated source: ./MatMult2kX
+--------------------------------------------------------------------------------
+  No information has been collected for ./MatMult2kX
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: /home/pi/csci263/MatMultLab/MatMult2k.c
+--------------------------------------------------------------------------------
+           Ir I1mr ILmr            Dr        D1mr       DLmr        Dw    D1mw    DLmw 
+
+-- line 4 ----------------------------------------
+            .    .    .             .           .          .         .       .       .  #define kDim 800
+            .    .    .             .           .          .         .       .       .  #define kOffset 127
+            .    .    .             .           .          .         .       .       .  #define kFactor 31
+            .    .    .             .           .          .         .       .       .  
+            .    .    .             .           .          .         .       .       .  typedef double Matrix[kDim][kDim]; // user defined kDim x kDim matrix type
+            .    .    .             .           .          .         .       .       .  
+            .    .    .             .           .          .         .       .       .  // autofill the matrix with values
+            .    .    .             .           .          .         .       .       .  void fillMat(Matrix trg, int seed) {
+            1    0    0             0           0          0         0       0       0     int row, col, val = seed;
+            .    .    .             .           .          .         .       .       .  
+        5,602    2    1             1           1          1         0       0       0     for (row = 0; row < kDim; row++)
+    2,560,000    0    0             0           0          0         0       0       0        for (col = 0; col < kDim; col++) {
+    2,560,000    0    0             0           0          0         0       0       0           val = val * kFactor + kOffset;
+    5,120,006    0    0             2           0          0 1,280,000 160,000 160,000           trg[row][col] = val / (double)INT_MAX;
+            .    .    .             .           .          .         .       .       .        }
+            .    .    .             .           .          .         .       .       .  }
+            .    .    .             .           .          .         .       .       .  
+            .    .    .             .           .          .         .       .       .  // pretty print matrix as an array
+            .    .    .             .           .          .         .       .       .  void printMat(Matrix mat) {
+            .    .    .             .           .          .         .       .       .     int row, col;
+            .    .    .             .           .          .         .       .       .  
+            .    .    .             .           .          .         .       .       .     for (row = 0; row < kDim; row++) {
+-- line 25 ----------------------------------------
+-- line 26 ----------------------------------------
+            .    .    .             .           .          .         .       .       .        for (col = 0; col < kDim; col++) 
+            .    .    .             .           .          .         .       .       .           printf("%0.4lf ", mat[row][col]);
+            .    .    .             .           .          .         .       .       .        printf("\n");
+            .    .    .             .           .          .         .       .       .     }
+            .    .    .             .           .          .         .       .       .     printf("\n");
+            .    .    .             .           .          .         .       .       .  }
+            .    .    .             .           .          .         .       .       .  
+            .    .    .             .           .          .         .       .       .  // does a matrix multiplication and puts the result in prd
+        2,404    0    0             0           0          0         4       1       1  double multMat(Matrix prd, Matrix m1, Matrix m2) {
+            .    .    .             .           .          .         .       .       .     int row, col, idx;
+    1,920,002    1    1       640,001     160,000      8,113         0       0       0     double checkSum = 0.0, val;
+            .    .    .             .           .          .         .       .       .  
+        2,400    0    0             0           0          0         0       0       0     for (row = 0; row < kDim; row++) { // foreach row
+    1,280,800    0    0             0           0          0         0       0       0        for (col = 0; col < kDim; col++) { // foreach col
+            .    .    .             .           .          .         .       .       .           val = 0.0;
+1,024,000,000    0    0             0           0          0         0       0       0           for (idx = 0; idx < kDim; idx++)
+2,048,000,000    1    0 1,024,000,000 530,006,751 64,138,179         0       0       0              val += m1[row][idx] * m2[idx][col];
+            .    .    .             .           .          .         .       .       .  
+      640,000    0    0             0           0          0   640,000 640,000  80,252           prd[row][col] = val;
+    1,280,000    0    0             0           0          0         0       0       0           checkSum += val;
+            .    .    .             .           .          .         .       .       .        }
+            .    .    .             .           .          .         .       .       .     }
+            .    .    .             .           .          .         .       .       .  
+            .    .    .             .           .          .         .       .       .     return checkSum;
+            1    0    0             4           1          1         0       0       0  }
+            .    .    .             .           .          .         .       .       .  
+            .    .    .             .           .          .         .       .       .  Matrix m1, m2, prd; // global variables ? 
+            .    .    .             .           .          .         .       .       .  
+          802    1    1             1           1          1         2       0       0  int main(int argc, char **argv) {
+            .    .    .             .           .          .         .       .       .     double checkSum;
+            .    .    .             .           .          .         .       .       .  
+            .    .    .             .           .          .         .       .       .     fillMat(m1, 10);
+            .    .    .             .           .          .         .       .       .     fillMat(m2, 20);
+            4    0    0             3           2          2         0       0       0     checkSum = multMat(prd, m1, m2);
+            .    .    .             .           .          .         .       .       .  
+            .    .    .             .           .          .         .       .       .     // printMat(m1);
+            .    .    .             .           .          .         .       .       .     // printMat(m2);
+            3    0    0             1           1          1         0       0       0     printf("\n%lf\n", checkSum);
+            .    .    .             .           .          .         .       .       .     // printMat(prd);
+            2    0    0             2           0          0         0       0       0  }
+
+--------------------------------------------------------------------------------
+ Ir I1mr ILmr  Dr D1mr DLmr Dw D1mw DLmw 
+--------------------------------------------------------------------------------
+100    0    0 100  100  100 89  100  100  percentage of events annotated
+
